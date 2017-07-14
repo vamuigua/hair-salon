@@ -50,7 +50,7 @@ describe(Stylist) do
       it("returns a stylist by his/her ID") do
         test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
         test_stylist.save()
-        test_stylist2 = Stylist.new({:stylist_name => "Mercy", :id => 1})
+        test_stylist2 = Stylist.new({:stylist_name => "Mercy", :id => 2})
         test_stylist2.save()
         expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
       end
