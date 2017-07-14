@@ -11,6 +11,14 @@ describe(Client) do
     	end
 	end
 
+	#spec to return the client's name
+    describe("#client_name") do
+      it("returns the client_name") do
+        test_client = Client.new({:client_name => "Stacy", :stylist_id => 1})
+        expect(test_client.client_name()).to(eq("Stacy"))
+      end
+    end
+
 	#spec to save a client to the database
 	describe("#save") do
     	it("adds a client to the array of saved clients") do
