@@ -10,6 +10,7 @@ describe(Stylist) do
 		end
 	end
 
+	#spec to return stylist's name
 	describe("#stylist_name") do
       it("tells you the stylist's name") do
         test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
@@ -17,6 +18,7 @@ describe(Stylist) do
       end
     end
 
+    #spec to return the id of a stylist
     describe("#id") do
       it("sets the stylist's ID when you save it") do
         test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
