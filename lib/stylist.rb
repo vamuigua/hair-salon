@@ -21,4 +21,15 @@ class Stylist
 		stylists 
 	end
 
+	#method to save stylists to DB
+	define_method(:save) do
+      result = DB.exec("INSERT INTO stylists (stylist_name) VALUES ('#{@stylist_name}') RETURNING id;")
+       #first() is used to get the ID of the list and fetch() to select the ID
+      @id = result.first().fetch("id").to_i()
+    end
+
+    #method to make objects be same if they have the same name
+    define_method(:==) do |another_stylist|
+      self.stylist_name().==(another_stylist.stylist_name()).&(self.id().==(another_stylist.id()))
+    end
 end
