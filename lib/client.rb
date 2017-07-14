@@ -25,4 +25,9 @@ class Client
     define_method(:save) do
       DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id});")
     end
+
+    #making two client object with same name be treated as the same
+    define_method(:==) do |another_client|
+      self.client_name().==(another_client.client_name())
+    end
 end
