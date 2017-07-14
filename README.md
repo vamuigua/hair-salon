@@ -4,9 +4,9 @@ As the owner of a Salon, he/she must allocate the clients to a particular Salon 
 
 ## User-Stories
 
-*As a salon owner, I want to view, add, update and delete stylists.
-*As a salon owner, I want to view, add, update and delete clients.
-*As a salon owner, I want to add clients to a stylist.
+* As a salon owner, I want to view, add, update and delete stylists.
+* As a salon owner, I want to view, add, update and delete clients.
+* As a salon owner, I want to add clients to a stylist.
 
 ## Getting Started
 
