@@ -1,10 +1,23 @@
 class Client
 
 	#attribute_accessor
-	# attribute_accessor(:client_name,:stylist_id)
+	attr_reader(:client_name,:stylist_id)
 
+	#initialize method
 	define_method(:initialize) do |attributes|
 		@client_name = attributes.fetch(:client_name)
 		@stylist_id = attributes.fetch(:stylist_id)
 	end
+
+	#class method to return all clients from the database
+	define_singleton_method(:all) do
+      returned_clients = DB.exec("SELECT * FROM clients;")
+      clients = []
+      returned_clients.each() do |client|
+        client_name = task.fetch("client_name")
+        stylist_id = task.fetch("stylist_id").to_i()
+        clients.push(Client.new({:client_name => client_name, :stylist_id => stylist_id}))
+      end
+      clients
+    end
 end
