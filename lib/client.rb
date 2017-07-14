@@ -14,10 +14,15 @@ class Client
       returned_clients = DB.exec("SELECT * FROM clients;")
       clients = []
       returned_clients.each() do |client|
-        client_name = task.fetch("client_name")
-        stylist_id = task.fetch("stylist_id").to_i()
+        client_name = client.fetch("client_name")
+        stylist_id = client.fetch("stylist_id").to_i()
         clients.push(Client.new({:client_name => client_name, :stylist_id => stylist_id}))
       end
       clients
+    end
+
+    #method to save a client
+    define_method(:save) do
+      DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id});")
     end
 end
