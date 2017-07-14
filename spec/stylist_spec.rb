@@ -13,7 +13,7 @@ describe(Stylist) do
 	#spec to return stylist's name
 	describe("#stylist_name") do
       it("tells you the stylist's name") do
-        test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
+        test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
         expect(test_stylist.stylist_name()).to(eq("Jane"))
       end
     end
@@ -21,7 +21,7 @@ describe(Stylist) do
     #spec to return the id of a stylist
     describe("#id") do
       it("sets the stylist's ID when you save it") do
-        test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
+        test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
         test_stylist.save()
         expect(test_stylist.id()).to(be_an_instance_of(Fixnum))
       end
@@ -30,7 +30,7 @@ describe(Stylist) do
 	#spec to save a stylist and return the new stylist
 	describe("#save") do
       it("lets you save stylists to the database") do
-        stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
+        stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
         stylist.save()
         expect(Stylist.all()).to(eq([stylist]))
       end
@@ -39,8 +39,8 @@ describe(Stylist) do
     #spec to make stylist same if it has the same name
     describe("#==") do
       it("is the same stylist if it has the same name") do
-        stylist1 = Stylist.new({:stylist_name => "Jane", :id => 1})
-        stylist2 = Stylist.new({:stylist_name => "Jane", :id => 1})
+        stylist1 = Stylist.new({:stylist_name => "Jane", :id => nil})
+        stylist2 = Stylist.new({:stylist_name => "Jane", :id => nil})
         expect(stylist1).to(eq(stylist2))
       end
     end
@@ -48,9 +48,9 @@ describe(Stylist) do
     #spec to find id of a specific stylist
     describe(".find") do
       it("returns a stylist by his/her ID") do
-        test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
+        test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
         test_stylist.save()
-        test_stylist2 = Stylist.new({:stylist_name => "Mercy", :id => 2})
+        test_stylist2 = Stylist.new({:stylist_name => "Mercy", :id => nil})
         test_stylist2.save()
         expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
       end
@@ -59,7 +59,7 @@ describe(Stylist) do
     #spec to return clients of a particular stylist
     describe("#clients") do
       it("returns an array of clients for that stylist") do
-        test_stylist = Stylist.new({:stylist_name => "Jane", :id => 1})
+        test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
         test_stylist.save()
         test_client = Client.new({:client_name => "Mercy", :stylist_id => test_stylist.id()})
         test_client.save()
@@ -89,15 +89,15 @@ describe(Stylist) do
         test_stylist1.delete()
         expect(Stylist.all()).to(eq([test_stylist2]))
       end
-      # it("deletes a Stylist's clients from the database") do
-      #   test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
-      #   test_stylist.save()
-      #   test_client1 = Client.new({:client_name => "Faith", :stylist_id => stylist_id()})
-      #   test_client1.save()
-      #   test_client2 = Client.new({:client_name => "Mary", :stylist_id => stylist_id()})
-      #   test_client2.save()
-      #   test_stylist.delete()
-      #   expect(Client.all()).to(eq([]))
-      # end
+      it("deletes a Stylist's clients from the database") do
+        test_stylist = Stylist.new({:stylist_name => "Jane", :id => nil})
+        test_stylist.save()
+        test_client1 = Client.new({:client_name => "Faith", :stylist_id => test_stylist.id()})
+        test_client1.save()
+        test_client2 = Client.new({:client_name => "Mary", :stylist_id => test_stylist.id()})
+        test_client2.save()
+        test_stylist.delete()
+        expect(Client.all()).to(eq([]))
+      end
     end
 end
