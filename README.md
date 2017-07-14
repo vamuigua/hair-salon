@@ -1,5 +1,13 @@
 # Hair-salon :haircut:
 
+As the owner of a Salon, he/she must allocate the clients to a particular Salon Stylist because they all work independently...One Stylist, Many Clients.
+
+## User-Stories
+
+*As a salon owner, I want to view, add, update and delete stylists.
+*As a salon owner, I want to view, add, update and delete clients.
+*As a salon owner, I want to add clients to a stylist.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -18,6 +26,7 @@ Your now in the Project!
 Things you need to install
 
 * Ruby 2.3.1
+* psql (PostgreSQL) 9.6.3
 
 ```
 Give examples
@@ -52,7 +61,7 @@ Explain how to run the automated tests for this system
 
 ## Authors
 
-* **Victor Allen** - [vamuigua](https://github.com/vamuigua)
+* **Victor Allen** - [vamuigua](https://github.com/vamuigua) :v:
 
 ## License
 
