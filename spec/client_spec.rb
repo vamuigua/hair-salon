@@ -37,7 +37,7 @@ describe(Client) do
     end
   end
 
-  #spec to update details of a client
+  #spec to update details of a specific client
   describe("#update") do
     it("lets you update clients in the database") do
       test_client = Client.new({:client_name => "Jane", :id => nil})
@@ -47,6 +47,7 @@ describe(Client) do
     end
   end
 
+  #spec to delete a specific client
   describe("#delete") do
     it("Lets you delete clients in the database") do
       test_client1 = Client.new({:client_name => "Jane", :id => nil})
