@@ -14,7 +14,7 @@ describe(Client) do
   #spec to return the client's name
   describe("#client_name") do
     it("returns the client_name") do
-      test_client = Client.new({:client_name => "Stacy", :id => 1})
+      test_client = Client.new({:client_name => "Stacy", :id => nil})
       expect(test_client.client_name()).to(eq("Stacy"))
     end
   end
@@ -31,8 +31,8 @@ describe(Client) do
   #to make two client objects with the same properties are treated the same in our specs
   describe("#==") do
     it("is the same client if it has the same name and id") do
-      test_client1 = Client.new({:client_name => "Joy", :id => 1})
-      test_client2 = Client.new({:client_name => "Joy", :id => 1})
+      test_client1 = Client.new({:client_name => "Joy", :id => nil})
+      test_client2 = Client.new({:client_name => "Joy", :id => nil})
       expect(test_client1).to(eq(test_client2))
     end
   end
