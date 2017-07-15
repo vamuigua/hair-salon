@@ -22,7 +22,7 @@ class Client
     clients
   end
 
-  #method to save a client
+  #method to save a client to the database
   define_method(:save) do
     # DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id});")
     result=DB.exec("INSERT INTO clients (client_name) VALUES ('#{@client_name}') RETURNING id;")
@@ -40,6 +40,7 @@ class Client
     DB.exec("UPDATE clients SET client_name = '#{@client_name}' WHERE id = #{@id.to_i};")
   end
 
+  #method to delete a specific client
   define_method(:delete) do
     id=self.id.to_i
     DB.exec("DELETE FROM clients WHERE id = #{id};")
