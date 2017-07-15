@@ -1,4 +1,3 @@
-require 'client'
 class Stylist
 
   #attribute_accessor to read and write
@@ -45,12 +44,13 @@ class Stylist
     found_stylist
   end
 
+  #method to add a client to the database
   define_method(:add_client) do |client_id|
     @stylist_id = self.id.to_i()
     DB.exec("UPDATE clients SET stylist_id = #{@stylist_id} WHERE id=#{client_id};")
   end
 
-  #method to return all the clients from DB
+  #method to return all the clients for a specific stylist from DB
   define_method(:clients) do
     list_clients = []
     clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id().to_i};")
