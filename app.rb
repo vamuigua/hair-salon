@@ -51,10 +51,10 @@ end
 
 #post stylists according to the id
 post("/stylists/:id") do
-  @stylist = Stylist.find(params.fetch("id").to_i)
+  @stylist = Stylist.find(params.fetch("id").to_i())
   client_name = params.fetch("client_name")
   new_client = Client.new({:client_name=>client_name})
-  @stylist.add_member(new_client)
+  @stylist.add_client(new_client)
   erb(:stylist)
 end
 
