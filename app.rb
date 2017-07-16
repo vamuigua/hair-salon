@@ -57,3 +57,25 @@ post("/stylists/:id") do
   @stylist.add_member(new_client)
   erb(:stylist)
 end
+
+#route to edit a particular stylist
+get("/stylists/:id/edit") do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylist_edit)
+end
+
+#to edit/patch a particular stylist
+patch("/stylists/:id") do
+  stylist_name = params.fetch("stylist_name")
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.update({:stylist_name => stylist_name})
+  erb(:stylist)
+end
+
+#route to delete a list
+delete("/stylists/:id") do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.delete()
+  @stylists = Stylist.all()
+  erb(:stylists)
+end
