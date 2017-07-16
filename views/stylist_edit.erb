@@ -1,0 +1,17 @@
+<h1>Update <%=@stylist.stylist_name() %>'s details</h1>
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <div class="form-group">
+    <div class="input-field">
+      <input name="_method" type="hidden" value="patch">
+      <i class="material-icons prefix">account_circle</i>
+      <input name="stylist_name" id="icon_prefix stylist_name" type="text" class="validate form-control">
+      <label for="icon_prefix">Stylist's Name</label>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+</form>
+<br>
+<form action="/stylists/<%= @stylist.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="waves-effect waves-light btn red accent-4">Delete stylist</button>
+</form>
