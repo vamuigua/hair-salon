@@ -1,0 +1,13 @@
+<div class="universal-layout">
+  <h2>Available stylists</h2>
+  <% if @stylists.any?() %>
+  <ul>
+    <% @stylists.each() do |stylist| %>
+    <li style="font-size: 20px;"><a href="/stylists/<%= stylist.id()%>"><%= stylist.stylist_name() %></a> </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no stylists yet!</p>
+  <a class="waves-effect waves-light btn" href="/stylists/new">Add New Stylist</a>
+  <% end %>
+</div>
