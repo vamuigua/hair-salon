@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Hair Salon Managment System</title>
-      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    </head>
-    <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Hair Salon Managment System</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-    </ul>
-  </div>
-</nav>
-      <div class="container" style="margin-top:50px">
-        <%= yield %>
+<html>
+  <head>
+    <title>Hair Salon Managment System</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lemonada" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/16181c0ef9.js"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper purple darken-2">
+        <a href="/" class="brand-logo center "><img class="circle responsive-img" src="images/logo.png" style="background-color: #ec407a;width:80px"></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/">UREMBO SALON</a></li>
+        </ul>
       </div>
-    </body>
-  </html>
+    </nav>
+    <div class="container">
+      <%= yield %>
+      <img class="responsive-img" src="/images/pic1.png" style="width: 100%;">
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
