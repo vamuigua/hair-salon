@@ -1,12 +1,13 @@
 class Client
 
   #attribute_accessor
-  attr_reader(:client_name,:id)
+  attr_reader(:client_name,:id, :stylist_id)
 
   #initialize method
   define_method(:initialize) do |attributes|
     @id=attributes.fetch(:id)
     @client_name = attributes.fetch(:client_name)
+    @stylist_id = attributes.fetch(:stylist_id).to_i
   end
 
   #class method to return all clients from the database
@@ -16,7 +17,8 @@ class Client
     returned_clients.each() do |client|
       client_id=client.fetch('id').to_i
       client_name = client.fetch("client_name")
-      clients.push(Client.new({:id=>client_id, :client_name => client_name}))
+      stylist_id = stylist_id.fetch("stylist_id").to_i
+      clients.push(Client.new({:client_name => client_name,:id=>client_id,:stylist_id=>stylist_id}))
     end
     clients
   end
@@ -24,7 +26,7 @@ class Client
   #method to save a client to the database
   define_method(:save) do
     # DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id});")
-    result=DB.exec("INSERT INTO clients (client_name) VALUES ('#{@client_name}') RETURNING id;")
+    result=DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id}) RETURNING id;")
     @id=result.first.fetch('id').to_i
   end
 
