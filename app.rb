@@ -36,8 +36,8 @@ end
 #post request to post client_name and id for a new Stylist created
 post("/clients") do
   client_name = params.fetch("client_name")
-  client_id = params.fetch("id").to_i()
-  @client = Client.new({:client_name => client_name, :id => client_id})
+  stylist_id = params.fetch("stylist_id")
+  @client = Client.new({:client_name => client_name, :id => nil, :stylist_id => stylist_id})
   @client.save()
   erb(:stylist)
 end
@@ -50,11 +50,12 @@ get("/stylists/:id") do
 end
 
 #post stylists according to the id
-post("/stylists/:id") do
-  @stylist = Stylist.find(params.fetch("id").to_i())
+post("/stylists/clients") do
+  stylist_id = params.fetch('stylist_id').to_i
   client_name = params.fetch("client_name")
-  new_client = Client.new({:client_name=>client_name})
-  @stylist.add_client(new_client)
+  new_client = Client.new({:client_name=>client_name, :id => nil, :stylist_id => stylist_id})
+  new_client.save
+  @stylist = Stylist.find(stylist_id)
   erb(:stylist)
 end
 
