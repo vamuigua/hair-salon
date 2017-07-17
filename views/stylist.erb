@@ -11,7 +11,7 @@
 <p>There are no clients on this stylist!</p>
 <% end %>
 <h4>Add a new client to <%= @stylist.stylist_name() %> </h4>
-<form action="/stylists/<%= @stylist.id%>" method="post">
+<form action="/stylists/clients" method="post">
   <div class="form-group">
     <div class="input-field">
       <i class="material-icons prefix">account_circle</i>
