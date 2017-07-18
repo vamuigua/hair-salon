@@ -56,7 +56,8 @@ Explain how to run the automated tests for this system
 
 ## Built With
 
-* [Ruby](https://www.ruby-lang.org/en/) - The web framework used
+* [Ruby](https://www.ruby-lang.org/en/) - Programming Language
+* [Materialize](http://materializecss.com/) - Front-end Frame Work 
 
 
 ## Authors
