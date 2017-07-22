@@ -2,6 +2,8 @@
 
 As the owner of a Salon, he/she must allocate the clients to a particular Salon Stylist because they all work independently...One Stylist, Many Clients.
 
+![alt text](/public/images/screenshot.png)
+
 ## User-Stories
 
 * As a salon owner, I want to view, add, update and delete stylists.
